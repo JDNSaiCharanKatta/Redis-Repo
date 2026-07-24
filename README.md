@@ -187,7 +187,6 @@ sudo certbot --nginx -d redis.charan.click
 # Step 11: Configure HTTPS
 
 Replace the Nginx configuration with your HTTPS configuration and reload Nginx.
-
 server {
     listen 80;
     server_name redis.charan.click;
