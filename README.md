@@ -184,9 +184,11 @@ sudo certbot --nginx -d redis.charan.click
 
 ---
 
-# Step 11: Configure HTTPS
+## Step 11: Configure HTTPS
 
-Replace the Nginx configuration with your HTTPS configuration and reload Nginx.
+Replace the Nginx configuration with the following:
+
+```nginx
 server {
     listen 80;
     server_name redis.charan.click;
@@ -222,13 +224,14 @@ server {
         proxy_read_timeout 60s;
     }
 }
+```
 
+Verify the configuration:
 
+```bash
 sudo nginx -t
 sudo systemctl reload nginx
 ```
-
----
 
 # Step 12: Install Redis CLI
 
