@@ -237,7 +237,9 @@ sudo systemctl reload nginx
 
 
 sudo apt install redis-tools -y
+
 redis-cli --version
+
 <img width="762" height="181" alt="image" src="https://github.com/user-attachments/assets/9443737a-df4d-4ab5-80e7-c69a4c82ff60" />  redis cli
 
 ---
@@ -246,21 +248,21 @@ redis-cli --version
 
 Using domain:
 
-```bash
 redis-cli -h redis.charan.click -p 6379
-```
+
 
 Using server IP:
 
 redis-cli -h <SERVER-IP> -p 6379
+
 <img width="1553" height="666" alt="image" src="https://github.com/user-attachments/assets/39e71129-872d-431c-951f-96d8ca20e0ce" /> acl list 
 
 # Step 14: Create Redis Users
 
-```redis
+redis
 ACL SETUSER asit on >Asit@123
 ACL SETUSER Charan on >Charan@366
-```
+
 
 ---
 
