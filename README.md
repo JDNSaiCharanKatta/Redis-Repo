@@ -96,19 +96,25 @@ version: "3.8"
 
 services:
   redis:
-    image: redis/redis-stack:latest
-    container_name: redis-stack
-    restart: unless-stopped
-
+    image: redis:latest
+    container_name: redis-server
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     ports:
       - "6379:6379"
-      - "8001:8001"
-
     volumes:
-      - redis-data:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf:ro
+      - ./redis/data:/data
+    restart: always
 
-volumes:
-  redis-data:
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redis-ui
+    ports:
+      - "8001:5540"  # ✅ RedisInsight runs internally on port 5540
+    volumes:
+      - ./redisinsight/data:/db
+    restart: always
+
 ```
 
 ---
